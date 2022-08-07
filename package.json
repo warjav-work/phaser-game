@@ -1,0 +1,16 @@
+{
+    "name": "phaser-config",
+    "description": "A Phaser 3 Project Template",
+    "license": "MIT",
+    "author": "phaser-config",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "web-dev-server"
+    },
+    "dependencies": {
+        "phaser": "^3.55.2"
+    },
+    "devDependencies": {
+        "@web/dev-server": "^0.1.28"
+    }
+}
