@@ -2,8 +2,9 @@ class MyGame extends Phaser.Scene {
     constructor() {
         super();
     }
+
     preload() {
-        this.load.image('logo', "../assets/logo.png");
+        this.load.image("logo", "../assets/logo.png");
     }
 
     create() {
@@ -19,20 +20,16 @@ class MyGame extends Phaser.Scene {
             duration: 2000,
             ease: "Power2",
             yoyo: true,
-            loop: -1
+            loop: -1,
         });
     }
 
-    update() {
+    update() {}
 
-    }
-
-    renderer() {
-
-    }
+    renderer() {}
 }
 
-var config = {
+const config = {
     type: Phaser.AUTO,
     width: 1000,
     height: 800,
@@ -42,7 +39,7 @@ var config = {
             gravity: { y: 200 },
         },
     },
-    scene: MyGame
+    scene: MyGame,
 };
 
 // const config = {

@@ -8,22 +8,55 @@
     <base href="/">
 
     <style>
-        html,
         body {
             margin: 0;
-            padding: 0;
+            overflow: hidden;
             font-family: sans-serif;
-            background-color: #ededed;
+            background-color: black;
+        }
+
+        #phaser-app {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
         }
     </style>
-    <title>phaser-config</title>
+    <title>Cave Game | HTML5 PHASER</title>
+
+    <!-- Libraries -->
+    <script src="./libs/phaser.min.js"></script>
+
+    <!-- Prefabs -->
+    <script src="./prefabs/text.js"></script>
+    <script src="./prefabs/helpers.js"></script>
+
+    <!-- Scenes -->
+    <script src="./scenes/boot.js"></script>
+    <script src="./scenes/preload.js"></script>
+    <script src="./scenes/menu.js"></script>
+
+    <!-- Scripts -->
+    <!-- <script type="module" src="./src/index.js"></script> -->
+    <script src="js/app.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
-    <phaser-config></phaser-config>
+    <div id="phaser-app"></div>
 
-    <script type="module" src="./src/index.js"></script>
-    <script src="./node_modules/phaser/dist/phaser.js"></script>
+    <!-- Libraries -->
+    <!-- <script src="./node_modules/phaser/dist/phaser.js"></script> -->
+
+    <!-- Scripts -->
+    <!-- <script type="module" src="./src/index.js"></script> -->
+
+
 </body>
 
 </html>

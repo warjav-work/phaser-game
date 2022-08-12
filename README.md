@@ -1,7 +1,6 @@
 ## Phaser 3 Open-wc Starter App
 
 A Phaser 3 project template.
-[![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
 
 This has been updated for Phaser 3.55.2 version and above.
 
