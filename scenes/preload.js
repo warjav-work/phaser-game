@@ -11,13 +11,19 @@ class Preload extends Phaser.Scene {
     }
 
     preload() {
+        // Background
+        this.bg = this.add.graphics({ x: 0, y: 0 });
+        this.bg.fillStyle('0xF4CCA1', 1);
+        this.bg.fillRect(0, 0, this.CONFIG.width, this.CONFIG.height);
+
         // Create loading bar
         this.createLoadinBar();
         // Spritesheets
         this.load.setPath('assets/img');
         // ... files
-        this.load.spritesheet('spr-hero', 'spr-hero.png', { frameWidth: 16, frameHeight: 16, endFrame: 4, margin: 1, spacing: 2 });
-        this.load.spritesheet('spr-slime', 'spr-slime.png', { frameWidth: 16, frameHeight: 16, endFrame: 4, margin: 1, spacing: 2 });
+        this.load.spritesheet('tileset', 'spritesheet.png', { frameWidth: 32, frameHeight: 32, endFrame: 19, margin: 2, spacing: 4 });
+        this.load.spritesheet('spr-hero', 'spr-hero.png', { frameWidth: 32, frameHeight: 32, endFrame: 4, margin: 2, spacing: 4 });
+        this.load.spritesheet('spr-slime', 'spr-slime.png', { frameWidth: 32, frameHeight: 32, endFrame: 4, margin: 2, spacing: 4 });
     }
 
     create() {
