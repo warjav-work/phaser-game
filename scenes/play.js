@@ -29,7 +29,8 @@ class Play extends Phaser.Scene {
         // create floor
         this.generator.setup();
 
-
+        // Player
+        this.createPlayer();
     }
 
     update() {
@@ -41,6 +42,17 @@ class Play extends Phaser.Scene {
         // Delete passed floor tiles
 
     }
+
+    // Player ................................
+    createPlayer() {
+        this.player = new Player(
+            this,
+            this.CONFIG.centerX,
+            this.CONFIG.centerY,
+            'spr-hero'
+        );
+    }
+
 
     // Camera .................................
     updateCamera() {
