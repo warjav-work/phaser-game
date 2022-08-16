@@ -22,11 +22,13 @@ class Preload extends Phaser.Scene {
         this.load.setPath('assets/img');
         // ... files
         this.load.spritesheet('tileset', 'spritesheet.png', { frameWidth: 32, frameHeight: 32, endFrame: 19, margin: 0, spacing: 4 });
-        this.load.spritesheet('spr-hero', 'spr-hero.png', { frameWidth: 32, frameHeight: 32, endFrame: 4, margin: 2, spacing: 4 });
+        this.load.spritesheet('spr-hero', 'spr-hero.png', { frameWidth: 32, frameHeight: 32, endFrame: 4, margin: 0, spacing: 0 });
         this.load.spritesheet('spr-slime', 'spr-slime.png', { frameWidth: 32, frameHeight: 32, endFrame: 4, margin: 2, spacing: 4 });
     }
 
     create() {
+        // Create sprite animations
+        this.createAllAnims();
         // Go menu
         this.time.addEvent({
             delay: 1000,
@@ -83,5 +85,34 @@ class Preload extends Phaser.Scene {
 
         //Percentage in progress text
         this.txt_progress.setText(Math.round(val * 100) + '%');
+    }
+
+    createAllAnims() {
+        // Hero walking 0-1-0-2
+        let framesHero = this.anims.generateFrameNames('spr-hero', { frames: [0, 1, 0, 2] });
+        this.anims.create({
+            key: 'spr-hero-walk',
+            frames: framesHero,
+            repeat: -1,
+            frameRate: 12
+        });
+
+        // Slime walking 0-1-0-2
+        let framesSlime = this.anims.generateFrameNames('spr-slime', { frames: [0, 1, 0, 2] });
+        this.anims.create({
+            key: 'spr-slime-walk',
+            frames: framesSlime,
+            repeat: -1,
+            frameRate: 12
+        });
+
+        // Spider walking 0-1-0-2
+        let framesSpider = this.anims.generateFrameNames('spr-spider', { frames: [0, 1, 0, 2] });
+        this.anims.create({
+            key: 'spr-spider-walk',
+            frames: framesSpider,
+            repeat: -1,
+            frameRate: 12
+        });
     }
 }

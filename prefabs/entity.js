@@ -106,4 +106,70 @@ class Entity {
         this.shadow = false;
     }
 
+    // Animations .............................................
+    startNewAnim(key) {
+        this.stopAnim();
+
+        switch (key) {
+            case 'idle':
+                this.startIdleAnim();
+                break;
+            case 'walk':
+                this.startWalkAnim();
+                break;
+            case 'dead':
+                break;
+            case 'hurt':
+                this.startHurtAnim();
+                break;
+            default:
+                console.log(this.key + ' invalid ANIM key ', key);
+        }
+    }
+
+    startIdleAnim() {
+        this.spr.setFrame(this.frames.idle);
+    }
+
+    startWalkAnim() {
+        this.spr.play(this.key + '-walk');
+    }
+
+    startHurtAnim() {
+        this.spr.setFrame(this.frames.hurt);
+    }
+
+
+
+    stopAnim() {
+        this.spr.anims.stop();
+        this.spr.setFrame(this.frames.idle);
+    }
+
+    // Setters ...................................
+    setSpritePosition(x, y) {
+        if (typeof x === 'number') {
+            this.x = x;
+        }
+        if (typeof y === 'number') {
+            this.y = y;
+        }
+        this.spr.setX(this.x);
+        this.spr.setY(this.y);
+
+        if (this.shadow) {
+            this.shadow.setX(this.x);
+            this.shadow.setY(this.y);
+        }
+    }
+
+    setDepth(depth) {
+        this.depth = depth;
+
+        this.spr.setDepth(depth);
+
+        if (this.shadow) {
+            this.shadow.setDepth(depth);
+        }
+    }
 }

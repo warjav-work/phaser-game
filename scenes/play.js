@@ -7,7 +7,8 @@ class Play extends Phaser.Scene {
     init() {
         this.CONFIG = this.sys.game.CONFIG;
         this.DEPTH = {
-            floor: 0
+            floor: 0,
+            player: 1
         };
 
         this.generator = new Generator(this);
@@ -38,8 +39,12 @@ class Play extends Phaser.Scene {
         this.updateCamera();
 
         // Draw new floor tiles
-        this.generator.update();
         // Delete passed floor tiles
+        this.generator.update();
+
+        // Move player downward
+        this.player.setSpritePosition(this.player.x, this.player.y + this.cam_speed.current);
+
 
     }
 
@@ -51,6 +56,10 @@ class Play extends Phaser.Scene {
             this.CONFIG.centerY,
             'spr-hero'
         );
+
+        this.player.setDepth(this.DEPTH.player);
+
+        this.player.startNewAnim('walk');
     }
 
 
