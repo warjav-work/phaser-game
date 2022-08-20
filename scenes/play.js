@@ -58,15 +58,10 @@ class Play extends Phaser.Scene {
         // Delete passed floor tiles
         this.generator.update();
 
-        // Move player downward
-        this.player.setSpritePosition(this.player.x, this.player.y + this.cam_speed.current);
+        // Update player
+        this.player.update(this.is_holding.direction);
 
-        // Move player sideways
-        if (this.is_holding.direction === 'left') {
-            this.player.setSpritePosition(this.player.x - 1, this.player.y);
-        } else if (this.is_holding.direction === 'right') {
-            this.player.setSpritePosition(this.player.x + 1, this.player.y);
-        }
+
 
 
     }
@@ -82,7 +77,7 @@ class Play extends Phaser.Scene {
 
         this.player.setDepth(this.DEPTH.player);
 
-        this.player.startNewAnim('walk');
+        this.player.startMoving();
     }
 
 
